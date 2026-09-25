@@ -1,0 +1,71 @@
+Fixed
+CODE HomePhone.......   LastName................ Notes.......................
+
+-----------------------------------------------------------------------------
+
+    The above first two lines in this file are used by the SKCONVERT program
+when it is converting SideKick 1.x Phone books (SK Dialer on the menu). By
+changing the first two lines of this file you can easily allow SKCONVERT to
+convert almost any text file that has one address per line. Following is a
+description of how these first two lines should be formatted.
+
+    The first line must begin with either an "F" or a "V". The "F" and "V"
+stand for Fixed and Variable respectively. By using the "F" or fixed width
+fields you are telling SKCONVERT that each field in you data file has a
+specific starting point and ending point. Using the "V" or variable width
+fields you are then telling SKCONVERT that you fields have different lengths
+in each record.
+
+Fixed Fields:
+  General Format:
+Fixed
+FIELD..... FIELD.......FILED FIELD.......FIELD
+
+  Where FIELD is a valid field name (see below)
+
+    When using Fixed fields each field in you data must start in a specific
+column. The sample PHONE.DIR file that came with SideKick 1.x is formatted
+this way. To specify how your fields are ordered you would type on the second
+line the name of the field and then follow it with 0 or more periods to show
+how wide this field is. Any blanks you include on the second line will become
+required by SKCONVERT. The blanks are used by SKCONVERT to determine whether
+the line is valid or not.
+
+    Here is an example of a fixed format that will work with the PHONE.DIR
+that came with SideKick 1.x
+
+  Example Data:
+ASMP       9@767-2626   Time                     (example of variable pause)
+
+  Example Field Definition
+Fixed
+CODE HomePHONE.......   LastName................ Notes......................
+
+Variable Fields
+  General Format:
+Variable
+S E FIELD FIELD FIELD FIELD
+
+    Where S is the character that begins but is not included in a field and E
+is the character that ends but is not included in a field. If S and E are
+equal then you need to make sure that there are two delimiter characters
+between each field. FIELD as with Fixed fields is a valid field. (See below)
+
+    Variable fields allow more flexibility than fixed length fields with one
+exception, The Start and End characters CANNOT exist in the data.
+
+    Here is an example of using Variable width fields (Same data as above but
+in a variable type format.
+
+  Example Data:
+"ASMP","9@767-2626","Time","(example of variable pause)"
+
+  Example Field Definition
+Variable
+" " CODE HomePHONE LastName Notes
+
+Valid fields are:
+  LastName, FirstName, MiddleName, Code, Title, Company, Street, City
+  State, Zip, HomePhone, BusinessPhone, AlternatePhone, Notes
+
+

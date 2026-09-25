@@ -1,0 +1,18 @@
+Repeat
+   Delay (1)
+   Write ^C
+   Match "User ID:"
+5 Times Or Until OK
+If Not OK Then
+   Restart
+EndIf
+
+Write @cservname,CR
+
+Match "Password:"
+
+Write @cservpsw,CR
+
+Match "OK"
+
+                

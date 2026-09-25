@@ -1,0 +1,274 @@
+                     Welcome to Sidekick 2.0
+    ----------------------------------------------------------
+
+    This README file contains important information about
+    Sidekick 2.0.  For the latest information about Sidekick 2.0 
+    and the manuals, read this file in its entirety.
+
+
+TABLE OF CONTENTS
+-----------------
+1.  Important Information
+2.  Corrections to the Manual
+3.  Files on the Disks
+
+1. Important Information
+------------------------
+ 
+------------------------
+
+  - Usage of Extended Memory: Sidekick can now use extended
+    memory for its data swapping.  Sidekick assumes that this 
+    extended memory is managed by an extended memory manager that 
+    is compatible with the XMS standard. You can verify if 
+    Sidekick is using extended memory by looking under SK | 
+    Services | About Sidekick.  To specify the amount of Extended 
+    or Expanded memory, run SKCONFIG and choose Memory | EMS 
+    memory to use.  For more information see Chapter 1 of Getting 
+    Started.
+
+  - INSTALLING: You MUST use the INSTALL program to install
+    Sidekick 2.0. The files on the distribution disks are    
+    archived and have to be properly assembled.
+
+  - REINSTALLING SIDEKICK 2.0: Reinstalling Sidekick 2.0 into the
+    same directory causes all desktop files (*.sks files) to be 
+    deleted.  If you wish to save these files, you must rename 
+    them (to something other than *.sks) before you reinstall 
+    Sidekick.
+
+  - QEMM.SYS users: Do not use the command line switch or
+    parameter "Frame=A000". Sidekick 2.0 uses this area.
+
+  - NETWORK Users: The User Dictionary (USER.DIC) cannot be shared 
+    on a network. In SKCONFIG, under Network, User-dictionary 
+    directory should be a private directory.
+
+    For 3+Open and other Lan Manager based networks, use the 
+    SKCONFIG program and configure Sidekick 2.0 for PC-Lan 
+    network. For 3Com and 3+Share networks, use the 3Com network 
+    selection.
+
+    On a NOVELL network your CAPTURE command (used for 
+    redirecting printer output to your network printer) must 
+    contain "/NT" for no tabs AND "/TI=15" for time out=15 
+    seconds, for example,
+
+          capture  /NT /TI=15
+
+    Other networks may require a similar statement.
+
+  - CONVERTING Sidekick 1.x and Sidekick Plus files: When 
+    converting Sidekick 1.x Dialer files, you must define the 
+    format of the dialer in a text file with the extension .fmt. 
+    The following naming convention is used for these .fmt files.
+
+    SKCONVER will first look for a file called <fname>.fmt
+    where <fname> is the name of your Dialer file. Using the
+    Sidekick 1.x default, this would be "phone.fmt".
+
+    If <fname>.fmt file is not found, then SKCONVER will look
+    for a file named "default.fmt".  This file is located in your 
+    Sidekick 2.0. default directory.
+
+    If neither of these files exist, then the conversion
+    will not continue.
+
+    The .fmt file must be in the same directory that contains
+    SKCONVER. For details on how to structure the .fmt file, read
+    the "default.fmt" file that is in your Sidekick 2.0 
+    directory.
+
+    Sidekick Plus TimePlanner files that are converted will have
+    to be edited if any entries contain an alarm that dials a
+    VOICE/DATA number. Sidekick Plus alarms use the "INDEX"
+    field to specify the number to dial. Sidekick 2.0 uses
+    "Last Name, First Name" fields for VOICE calls and the 
+    "Service" field for DATA calls.
+
+    SKCONVER does not convert the Sidekick Plus glossary, 
+    therefore, you may have to do this conversion manually.
+    Sidekick 2.0 communication passwords are entered under 
+    Phone|Script passwords in Communications.
+
+  - CHANGING SORT ORDER:
+    Copy the appropriate .SOR file to PARADOX.SOR
+
+    Delete all .PX files
+
+    Run SKCONVER, using the Rebuild option, on each database 
+    file.
+
+    Rerun Sidekick.  If Sidekick is resident in memory, it will 
+    not understand the new sort order until it has been run 
+    again.
+
+  - PRINTING: If you print using a "cut sheet feeder", make sure 
+    you have set the dip switches correctly. Check your printer 
+    manual for "out of paper" situations.
+
+    Since the default Printer Settings are generic, you may want 
+    to custom tailor them for your specific printer and 
+    preferences. The settings are found and may be changed under 
+    File|Printer Settings in each application.
+
+    The following printer specific Printer Settings are 
+    recommended for the configurations below:
+
+    Printer/mode/size                Top   Bottom   Left   Right
+    =================                ===   ======   ====   =====
+    HP DeskJet 500/graphics/A4      0.500  0.600   0.750   0.500
+    QMS ColorScript/graphics/letter 1.200  0.700   0.750   0.500
+    QMS PS-410a/graphics/A4         0.700  0.500   0.750   0.500
+
+    When printing text to an HP LaserJet type printer and your 
+    file contains extended ASCII characters, you will need to 
+    send the appropriate initialization string to the printer. 
+    Check your printer's documentation. 
+
+  - ATTACHED NOTES: Maximum file size for attached note in Time 
+    Planner is 6,000 characters. Maximum size for attached notes 
+    in Address Book and Communications is 48,000 characters.
+
+  - Installing under Windows 3.0:
+    a.) Install Sidekick 2.0 as a stand-alone program.
+
+    b.) Type "Win" from the DOS prompt.  If Sidekick 2.0 is        
+    installed in a directory other than the default directory 
+    (C:\sk2), you must change the path in the sk2.pif file. If 
+    you used the default go to c.) below.
+
+        Open the PIF editor from the Windows 3.0 Program 
+        Manager. (Normally in the Accessories window.)
+
+        Open the file "sk2.pif" found in the directory where 
+        Sidekick 2.0 was installed.
+
+        Change the path in both the Program Filename AND Start- 
+        up Directory fields.  Leave all other fields the same.
+
+        Save the sk2.pif file and close the PIF editor.
+
+    c.) Move to the program group where you want the Sidekick        
+    icon to be located.  From the Program Manager, select 
+    File|New, then select Program Item, and select OK.
+
+        In the Program Item Properties dialog, enter Sidekick 2.0 
+        in the description.
+
+        Select the Browse button, and change the filename mask to 
+        *.pif.
+
+        Move to the directory where Sidekick 2.0 is installed, 
+        and select sk2.pif.
+
+        Select OK to exit the dialog box and return to the 
+        Program Manager.
+
+    d.) Windows will put Sidekick 2.0 into the program group that 
+    was highlighted when File|New was chosen. To move Sidekick 
+    2.0 into a different program group, use the mouse to drag the 
+    program icon into a new/different program group.
+
+
+2. Corrections to the Manual
+----------------------------
+
+ Getting Started
+ ---------------
+
+-page 14
+    middle, "Note:  If you have...concerning networks." should be 
+    deleted.
+
+-page 15
+    bottom should say, "The location you specify for the user 
+    dictionary (USER.DIC) file must be a private directory.
+
+-page 16
+    top, "Specifying a shared location...saves disk space.)" 
+    should be removed.
+
+-page 48
+    Should say "A Note symbol (ð) appears next to the 
+    appointment."
+
+ User's Guide
+ ------------
+
+-page 189
+    top of page, "In order to rebuild a file's index..."
+    should read, "Before rebuilding a file's index, be sure to 
+    delete the associated .PX file before running SKCONVER."
+
+
+3. Files on the Disks
+---------------------
+
+DISK 1
+    INSTALL  EXE   - Installation program
+    README         - This file
+    README.COM     - Program to view README
+    UNZIP    EXE   - Program to unpack the archived files
+    SK2-1    ZIP
+      Containing:
+      SK2    EX1   - Part of Sidekick 2.0
+DISK 2
+    SK2-2    ZIP  
+      Containing:
+      ADDRESS  DB  - Sample Address Book table
+      ADDRESS  PX  - Index for Address Book table
+      APP      DB  - Sample Time Planner table
+      APP      PX  - Index for Time Planner table
+      BIX      SCR - Script for BIX
+      CHARS    BGI - File used during font building
+      CHARSALL BGI - File used during font building
+      COMMS    DB  - Sample Communications table
+      COMMS    PX  - Index for Communications table
+      CSERV    SCR - Script for CompuServe
+      CUSTOMER TXT - Sample text file
+      DEFAULT  FMT - File used by SKCONVER
+      DUT      SFO - Font definition file
+      LETTER   TXT - Sample text file
+      MCI      SCR - Script for MCI
+      MODEMS   SK  - Modem initialization strings
+      NUMBERS  BGI - File used during font building
+      SK2      EX2 - Part of Sidekick 2.0
+      SK2      OVL - Part of Sidekick 2.0
+      SWS      SFO - Font definition file
+      SWSB     SFO - Font definition file
+DISK 3
+    SK2-3      ZIP
+      Containing:
+      SK2      EX3 - Part of Sidekick 2.0
+      THAM     LEX - Thesaurus file
+DISK 4
+    SK2-4      ZIP
+      Containing:
+      KERNEL   BGI - Graphical print support file
+      POSTSCRP BGI - Graphical print support file
+      PREAMBLE BGI - Graphical print support file
+      PRINTERS BGI - Printer selection file
+      PXENGINE OVL - Program used by SKCONVER
+      SPMAIN   LEX - Dictionary file
+      SPMAIN   LNG - Part of dictionary
+      USER     DIC - User dictionary
+
+DISK 5
+    SK2-5      ZIP
+      Containing:
+      ASCII    SOR - ASCII sort order definition
+      FONTBLD  EXE - Used by Sidekick 2.0 to generate fonts
+      INTL     SOR - International sort order definition
+      NORDAN   SOR - Norway/Denmark sort order definition
+      SK2      HLP - Sidekick 2.0 help file
+      SK2      PIF - Program Information File for Windows 3.0
+      SKCONFIG EXE - Sidekick 2.0 configuration program
+      SKCONVER EXE - Sidekick 2.0 conversion program
+      SWEDFIN  SOR - Sweden/Finland sort order definition
+
+NOTE: For users with 3 1/2 inch disks, disk 1 and disk 2 are on 
+      the first disk. Disk 3 and disk 4 are on the second disk.
+      Disk 5 is on the third disk.
+
+-------------------END OF README------------------------

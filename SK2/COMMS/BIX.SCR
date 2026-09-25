@@ -1,0 +1,33 @@
+;
+; Log in to BIX, via TymeNet.
+;
+; This script expects the following script passwords to have been 
+; defined:
+;
+;    bixname  - Your BIX username 
+;    bixpsw   - Your BIX password 
+;
+
+TimeOutUnit 1
+Delay (1)
+
+Repeat
+   Match ALL,1
+   If Not OK Then
+      Write CR
+   EndIf
+10 Times Or Until OK
+If Not OK Then
+   Restart
+EndIf
+
+Write "A"
+
+Match "in:"			;please log in:
+Write "bix",CR
+
+Match "Name?"
+Write @bixname,CR
+
+Match "Password:"
+Write @bixpsw,CR

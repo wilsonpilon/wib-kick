@@ -1,0 +1,15 @@
+TimeOutUnit 1
+
+Repeat
+   Write CR
+   Match "name:"
+5 Times Or Until OK
+If Not OK Then
+   Restart
+EndIf
+
+Write @mciname,CR
+
+Match "Password:"
+
+Write @mcipsw,CR
